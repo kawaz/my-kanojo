@@ -13,14 +13,18 @@ messages = yaml.load(open(os.path.join(os.path.dirname(__file__), 'messages.yaml
 
 class XmppKanojoHandler(webapp.RequestHandler):
     def post(self):
-        """ 任意@my-kanojp.appspotmail.com か my-kanojo@appspot.com にチャットの招待状を送って彼女にしよう！ 
+        """
+        任意@my-kanojp.appspotmail.com か my-kanojo@appspot.com にチャットの招待状を送って彼女にしよう！
+        Googleトークの場合は左下の「＋追加」ボタンから招待状が送れます。     
         """
         receive_message = xmpp.Message(self.request.POST)
         receive_message.reply(random.choice(messages['reply']))
 
+
 class MailKanojoHandler(webapp.RequestHandler):
     def post(self, delivered_to):
-        """ 任意@my-kanojp.appspotmail.com 宛にメールすると彼女が返信してくれるよ！
+        """
+        任意@my-kanojp.appspotmail.com 宛にメールすると彼女が返信してくれるよ！
         """
         delivered_to = urllib.unquote(delivered_to)
         receive_message = mail.InboundEmailMessage(self.request.body)
