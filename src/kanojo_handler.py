@@ -37,7 +37,7 @@ class MailKanojoHandler(webapp.RequestHandler):
 class HttpKanojoHandler(webapp.RequestHandler):
     def get(self):
         # もう彼女と話が出来るようになっちゃったから画面作るのが面倒になってしまったよ
-        self.redirect('http://d.hatena.ne.jp/y-kawaz/')
+        self.redirect('http://d.hatena.ne.jp/y-kawaz/20091211/1260550324')
 
 
 application = webapp.WSGIApplication([('/_ah/xmpp/message/chat/', XmppKanojoHandler),
